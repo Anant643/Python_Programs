@@ -5,10 +5,11 @@ choices = ["rock", "paper", "scissors"]
 
 while True:
 
-    print("First to 3 Wins takes the DUB!")
-    time.sleep(1)
-    print("Here we go then!")
-    print()
+    print("\n" + "=" * 40)
+    print("        ROCK PAPER SCISSORS")
+    print("          First to 3 Wins")
+    print("=" * 40)
+
     time.sleep(1)
 
     userSCORE = 0
@@ -17,20 +18,22 @@ while True:
     while userSCORE < 3 and systemSCORE < 3:
 
         while True:
-            pick = input("Rock, Paper or Scissors? Shoot!: ").lower()
+            pick = input("\nChoose (rock/paper/scissors): ").lower()
 
-            if pick not in ["rock", "paper", "scissors"]:
-                print("Pick a valid choice to play!")
+            if pick not in choices:
+                print("Please enter rock, paper, or scissors.")
             else:
                 break
 
         system = random.choice(choices)
 
-        print(f"You Chose {pick}!")
-        print(f"The computer chose {system}!")
+        print("\n" + "-" * 40)
+        print(f"You      : {pick}")
+        print(f"Computer : {system}")
+        print("-" * 40)
 
         if system == pick:
-            print("Ooh, Tied!")
+            print("It's a tie!")
 
         elif (
             (pick == "rock" and system == "scissors")
@@ -39,26 +42,28 @@ while True:
             or
             (pick == "scissors" and system == "paper")
         ):
-            print("You win!")
+            print("You win this round!")
             userSCORE += 1
 
         else:
-            print("Computer wins!")
+            print("Computer wins this round!")
             systemSCORE += 1
 
-        print(f"Score -> You: {userSCORE} | Computer: {systemSCORE}")
-        print()
-        print()
+        print(f"\nScore: You {userSCORE} - {systemSCORE} Computer")
 
-    print("---------HERE ARE THE RESULTS----------")
-    time.sleep(1)
-    print(f"Your Score: {userSCORE}")
-    print(f"System's Score: {systemSCORE}")
+        time.sleep(1)
+
+    print("\n" + "=" * 40)
+    print("            FINAL RESULT")
+    print("=" * 40)
+    print(f"Your Score     : {userSCORE}")
+    print(f"Computer Score : {systemSCORE}")
+    print("=" * 40)
 
     if userSCORE > systemSCORE:
-        print("Good Game! You Won!")
+        print("Congratulations! You Won!")
     else:
-        print("Haha You lost! Better luck next time!")
+        print("You Lost! Better luck next time!")
 
     while True:
         again = input("\nPlay Again? (y/n): ").lower()
@@ -69,9 +74,5 @@ while True:
             break
 
     if again == "n":
-        print("Thanks for playing!")
+        print("\nThanks for playing!")
         break
-
-
-
-
